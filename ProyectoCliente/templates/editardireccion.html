@@ -1,0 +1,40 @@
+{% extends 'marcos.html' %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <div class="card card-body">
+            <center><a>EDITAR DIRECCION</a></center>
+            <form action="/edi_direccion/{{ Direccion.0 }}" method="POST">
+            <div class="form-group">
+            <input id="TxtNombre" type="text" name="Pais" placeholder="Ingrese país" value="{{ Direccion.1 }}"  Class="form-control"
+            minlength="5" maxlength="40" required title="Complete este campo">
+            </div>
+            <br>
+            <div class="form-group">
+            <input id="TxtApellido" type="text" name="Departamento" placeholder="Ingrese departamento" value="{{ Direccion.2 }}"  Class="form-control"
+            minlength="5" maxlength="40" required title="Complete este campo">
+            </div>
+            <br>
+            <div class="form-group">
+            <input id="TxtFechaNacimiento" type="text" name="Municipio" placeholder="Ingresar Municipio" value="{{ Direccion.3 }}"  Class="form-control"
+            minlength="5" maxlength="40" required title="Complete este campo">
+            </div>
+            <br>
+            <div class="form-group">
+            <input id="TxtGenero_c" type="text" name="Direccion" placeholder="Ingresar dirección" value="{{ Direccion.4 }}"  Class="form-control"
+            minlength="5" maxlength="40" required title="Complete este campo">
+            </div>
+            <br>    
+            <div class="d-grid gap-2 col-6 mx-auto">
+            <button type="submit" class="btn btn-primary">
+                 Guardar
+            </button>
+            </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

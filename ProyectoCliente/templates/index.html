@@ -1,0 +1,104 @@
+{% extends 'marcos.html' %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+    
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+        {% endfor %}
+         {% endif %}
+        {% endwith %}
+        
+        <div class="card card-body">
+            <center><a>INGRESE LA SIGUIENTE INFORMACION DEL CLIENTE</a></center>
+            <br>
+            <form action="/add_contacto" method="POST">
+                <div class="form-group">
+                <input id="TxtNombre" type="text" name="Nombre" placeholder="Ingrese sus nombres" class="form-control"
+                minlength="5" maxlength="40" required title="Complete este campo">
+                </div>
+                <br>
+                <div class="form-group">
+                <input id="TxtApellido" type="text" name="Apellido" placeholder="Ingrese sus apellido" class="form-control"
+                minlength="5" maxlength="40" required title="Complete este campo">
+                </div>
+                <br>
+                <div class="form-group">
+                <input id="TxtFechaNacimiento" type="text" name="Fechanacimiento" placeholder="Fecha de nacimiento (dd/mm/aaaa)" class="form-control"
+                minlength="5" maxlength="40" required title="Complete este campo">
+                </div>
+                <br>
+                <div class="form-group">
+                <input id="TxtGenero_c" type="text" name="Genero_c" placeholder="Masculino o Femenino" class="form-control"
+                minlength="5" maxlength="40" required title="Complete este campo">
+                </div>
+                <br>
+                <div class="form-group">
+                <input type="text" name="Telefono" placeholder="Ingrese su Telefono" class="form-control" 
+                minlength="5" maxlength="40" required title="Complete este campo">
+                </div>
+                <br>
+                <div class="form-group">
+                <input id="TxtCorreo" type="text" name="Correo" placeholder="Ingrese su correo" class="form-control"
+                minlength="5" maxlength="40" required title="Complete este campo">
+                </div>
+                <br>
+                <div class="d-grid gap-2 col-6 mx-auto">
+                <button type="submit" class="btn btn-primary">
+                    Guardar
+                </button>
+                </div>
+            
+            </form>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
+<br>
+<br>
+<table class="table table-dark table-striped">
+    <thead>
+        <tr>
+            <td>Nombre Completo</td>
+            <td>Apellido Completo</td>
+            <td>Fecha de nacimiento</td>
+            <td>Genero</td>
+            <td>Telefono</td>
+            <td>Correo</td>
+            <td>Opciones</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for contacto in infocontacto %}
+        <tr>
+            <td>{{contacto.1}}</td>
+            <td>{{contacto.2}}</td>
+            <td>{{contacto.3}}</td>
+            <td>{{contacto.4}}</td>
+            <td>{{contacto.5}}</td>
+            <td>{{contacto.6}}</td>
+            <td>
+                <a href="/edi_contacto/{{contacto.0}}" class="btn btn-outline-warning">Editar</a>
+                <a href="/eli_contacto/{{contacto.0}}" class="btn btn-outline-danger">Eliminar</a>
+                <a href="/direcciones/{{contacto.0}}" class="btn btn-outline-primary">Direcciones</a>
+                <a href="/documentos/{{contacto.0}}" class="btn btn-outline-primary">Documento</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+
+{% endblock %}

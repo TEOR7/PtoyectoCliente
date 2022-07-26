@@ -1,0 +1,51 @@
+{% extends 'marcos.html' %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <div class="card card-body">
+            <center><a>EDITAR CONTACTO</a></center>
+            <br>
+            <form action="/editar/{{contacto.0}}" method="POST">
+                <div class="form-group" >
+                <input id="TxtNombre" type="text" name="Nombre" placeholder="Ingrese sus nombres" value="{{ contacto.1 }}" class="form-control"
+                minlength="5" maxlength="40" required title="Complete este campo">
+                </div>
+                <br>
+                <div class="form-group">            
+                <input id="TxtApellido" type="text" name="Apellido" placeholder="Ingrese sus apellido" value="{{ contacto.2 }}" class="form-control"
+                minlength="5" maxlength="8" required title="Complete este campo">
+                </div>
+                <br>
+                <div class="form-group">               
+                <input id="TxtFechaNacimiento" type="text" name="Fechanacimiento" placeholder="dd/mm/aaaa" value="{{ contacto.3 }}" class="form-control"
+                minlength="5" maxlength="12" required title="Complete este campo">
+                </div>
+                <br>
+                <div class="form-group">              
+                <input id="TxtGenero_c" type="text" name="Genero_c" placeholder="Masculino o Femenino" value="{{ contacto.4 }}" class="form-control"
+                minlength="5" maxlength="9" required title="Complete este campo">
+                </div>
+                <br>
+                <div class="form-group">               
+                <input id="TxtTelefono" type="text" name="Telefono" placeholder="Ingrese su Telefono" value="{{ contacto.5 }}" class="form-control"
+                minlength="5" maxlength="9" required title="Complete este campo">
+                </div>
+                <br>
+                <div class="form-group">              
+                <input id="TxtCorreo" type="text" name="Correo" placeholder="Ingrese su correo" value="{{ contacto.6 }}" class="form-control"
+                minlength="5" maxlength="40" required title="Complete este campo">
+                </div>
+                <br>
+                <div class="d-grid gap-2 col-6 mx-auto">              
+                     <button type="submit" class="btn btn-primary">
+                    Guardar
+                     </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+ 
